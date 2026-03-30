@@ -8,8 +8,21 @@
   --bg: #ffffff;
   --surface: #f8f9fb;
   --border: #edf0f4;
-  --grad: linear-gradient(135deg, #d4317a 0%, #9b4fa0 45%, #2db89e 100%);
+  --nav-bg: rgba(255,255,255,0.92);
+  --btn-text: #ffffff;
+  --grad: linear-gradient(135deg, #d20064 0%, #823296 33%, #0a78aa 66%, #0aa08c 100%);
 }
+
+[data-theme="dark"] {
+  --dark: #f8f9fb;
+  --mid: #a0aec0;
+  --soft: #718096;
+  --bg: #0f131a;
+  --surface: #1a202c;
+  --border: #2d3748;
+  --nav-bg: #000000;
+}
+
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body {
@@ -22,11 +35,16 @@ body {
 /* ── NAV ── */
 nav {
   position: sticky;
+  top: 0;
+  z-index: 1000;
   display: flex;
   align-items: center;
-  background: rgba(255,255,255,0.92);
+  background: var(--nav-bg);
   border-bottom: 1px solid var(--border);
-  justify-content: center;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  justify-content: space-between;
+  padding: 0.5rem 5%;
 }
 .nav-logo {
   display: flex; 
@@ -43,6 +61,27 @@ nav {
   font-size: 1.25rem;
   color: var(--dark);
   letter-spacing: -0.02em;
+}
+
+#theme-toggle {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--dark);
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: background 0.2s, transform 0.2s, border-color 0.2s;
+}
+
+#theme-toggle:hover {
+  background: var(--surface);
+  border-color: var(--teal);
+  transform: translateY(-2px);
 }
 /* ── HERO ── */
 .hero {
@@ -109,7 +148,7 @@ nav {
   padding: 0.85rem 2rem;
   border-radius: 100px;
   background: var(--grad);
-  color: #fff;
+  color: var(--btn-text);
   transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
   box-shadow: 0 4px 20px rgba(212,49,122,0.25);
 }
@@ -131,6 +170,22 @@ nav {
 .btn-secondary:hover {
   border-color: var(--teal); color: var(--teal);
   transform: translateY(-2px);
+}
+
+.btn-youtube {
+  background: #b90101;
+  box-shadow: 0 4px 20px rgba(255, 0, 0, 0.25);
+}
+.btn-youtube:hover {
+  box-shadow: 0 8px 30px rgba(255, 0, 0, 0.3);
+}
+
+.btn-linkedin {
+  background: #0662bf;
+  box-shadow: 0 4px 20px rgba(10, 102, 194, 0.25);
+}
+.btn-linkedin:hover {
+  box-shadow: 0 8px 30px rgba(10, 102, 194, 0.3);
 }
 /* scroll hint */
 .scroll-hint {
