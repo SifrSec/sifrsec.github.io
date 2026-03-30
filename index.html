@@ -6,10 +6,6 @@
   <title>SifrSec - Deciphering Cybersecurity</title>
   <link rel="stylesheet" href="styles/styles.css">
   <link rel="icon" href="media/logo.webp">
-  <script>
-    const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-    document.documentElement.setAttribute('data-theme', savedTheme);
-  </script>
 </head>
 <body>
 
@@ -20,9 +16,6 @@
     <img src="media/logo.webp" alt="logo">
     <span class="nav-wordmark">SifrSec</span>
   </a>
-  <button id="theme-toggle" aria-label="Toggle Dark Mode">
-    <span id="theme-icon">🌙</span>
-  </button>
 </nav>
 
 <!-- HERO -->
@@ -42,7 +35,7 @@
   </p>
 
   <div class="hero-actions">
-    <a href="https://youtube.com/@sifrsec" class="btn-primary btn-youtube" target="_blank">Watch on YouTube →</a>
+    <a href="https://youtube.com/@sifrsec" class="btn-primary" target="_blank">Watch on YouTube →</a>
     <a href="#about" class="btn-secondary">Learn more</a>
   </div>
 
@@ -115,8 +108,8 @@
   <h2 class="section-title">Get notified when we drop something worth your time.</h2>
   <p>No spam. Just new content, research, and tools from SifrSec.</p>
   <div class="newsletter-form">
-    <a target="_blank" href="https://linkedin.com/in/afnaan-ahmed-2180" class="btn-primary btn-linkedin">Follow on LinkedIn</a>
-    <a target="_blank" href="https://youtube.com/@sifrsec" class="btn-primary btn-youtube">Subscribe on YouTube</a>
+    <a target="_blank" href="https://linkedin.com/in/afnaan-ahmed-2180" class="btn-primary">Follow on LinkedIn</a>
+    <a target="_blank" href="https://youtube.com/@sifrsec" class="btn-primary">Subscribe on YouTube</a>
   </div>
 </section>
 
@@ -131,39 +124,6 @@
   </ul>
   <span class="footer-copy">© 2026 SifrSec</span>
 </footer>
-
-<script>
-  const toggleButton = document.getElementById('theme-toggle');
-  const themeIcon = document.getElementById('theme-icon');
-  const logoImage = document.querySelector('.nav-logo img');
-  const favicon = document.querySelector('link[rel="icon"]');
-
-  function updateVisuals(theme) {
-    if (theme === 'dark') {
-      if (themeIcon) themeIcon.textContent = '☀️';
-      if (logoImage) logoImage.src = 'media/logo-dark.webp';
-      if (favicon) favicon.href = 'media/logo-dark.webp';
-    } else {
-      if (themeIcon) themeIcon.textContent = '🌙';
-      if (logoImage) logoImage.src = 'media/logo.webp';
-      if (favicon) favicon.href = 'media/logo.webp';
-    }
-  }
-
-  // Set initial visuals based on the head script's theme initialization
-  const initialTheme = document.documentElement.getAttribute('data-theme');
-  updateVisuals(initialTheme);
-
-  if (toggleButton) {
-    toggleButton.addEventListener('click', () => {
-      let currentTheme = document.documentElement.getAttribute('data-theme');
-      let newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      document.documentElement.setAttribute('data-theme', newTheme);
-      localStorage.setItem('theme', newTheme);
-      updateVisuals(newTheme);
-    });
-  }
-</script>
 
 </body>
 </html>
